@@ -36,8 +36,10 @@ find_package(TinyXML2 REQUIRED)
 
 if($ENV{ROS_DISTRO} MATCHES "foxy")
   find_package(PythonLibs 3.8 EXACT REQUIRED)
-else()
+elseif($ENV{ROS_DISTRO} MATCHES "humble")
   find_package(PythonLibs 3.10 EXACT REQUIRED)
+else()
+  find_package(PythonLibs 3.12 EXACT REQUIRED)
 endif()
 
 add_custom_target(compile-lib-controller ALL
